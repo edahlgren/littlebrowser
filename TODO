@@ -1,0 +1,11 @@
+[x] make text appear on a gui
+[x] make a text bar at the top to insert search terms
+[x] given a url, get the ip (dns request) of the server
+[x] send an http request to the server over HTTP
+[x] decode the HTTP response and act on the response status
+
+[x] insert links with underlining and events
+[ ] setup a cached pool of sockets
+[ ] setup a cache of parsed text/html
+[ ] make the HttpQuery object more general, to support any host or url (not just search)
+[ ] separate parsing google search links from generic webpage parsing
