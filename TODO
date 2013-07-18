@@ -9,4 +9,8 @@
 [ ] setup a cache of parsed text/html
 [x] make the HttpQuery object more general, to support any host or url (not just search)
 [x] separate parsing google search links from generic webpage parsing
-[ ] make redirection work
+[x] make redirection work
+[ ] make it faster
+[ ] make https work, or at least don't show links to it
+[ ] back button
+[ ] links in actual web pages

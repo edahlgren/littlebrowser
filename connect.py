@@ -59,10 +59,11 @@ class HttpQuery(object):
         req = self.request(url)
         self.s.send('%s %s HTTP/1.1\r\n%s' % (req.method, url, str(req.headers)))
         resp = self.receive()
-        print "status code ", resp.status_code
-        if resp.status_code != 200:
-            return None
-        return resp.data
+        if resp.status_code == 302:
+            return (resp.status_code, resp.headers['Location'])
+        if resp.status_code == 200:
+            return (resp.status_code, resp.data)
+        return (resp.status_code, '')
 
     def request(self, url):
         headers = {}

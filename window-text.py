@@ -58,7 +58,11 @@ class Renderer(Frame):
             self.newline()
 
     def basic_render(self, html):
-        self.txt.insert(END, html)
+        soup = BeautifulSoup(html)
+        for p in soup.find_all("p"):
+            self.newline()
+            self.txt.insert(END, p.get_text())
+            self.newline()
 
     def search(self, _):
         query = self.entry.get()
@@ -66,13 +70,14 @@ class Renderer(Frame):
         self.reload_page(search_url, self.google_links)
 
     def reload_page(self, url, renderer):
-        print "url: ", url
         self.clear_text()
         urlparts = urlparse(url)
         connection = self.pool.get(urlparts.netloc)
-        html = connection.query(url)
-        if html:
-            renderer(html)
+        (status, data) = connection.query(url)
+        if status == 302:
+            self.reload_page(data, renderer)
+        if status == 200:
+            renderer(data)
         else:
             self.txt.insert(END, error_text % url)
 
