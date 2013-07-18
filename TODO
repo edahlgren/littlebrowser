@@ -5,7 +5,8 @@
 [x] decode the HTTP response and act on the response status
 
 [x] insert links with underlining and events
-[ ] setup a cached pool of sockets
+[x] setup a cached pool of sockets
 [ ] setup a cache of parsed text/html
-[ ] make the HttpQuery object more general, to support any host or url (not just search)
-[ ] separate parsing google search links from generic webpage parsing
+[x] make the HttpQuery object more general, to support any host or url (not just search)
+[x] separate parsing google search links from generic webpage parsing
+[ ] make redirection work
